@@ -1,0 +1,11 @@
+import { supabaseBrowser } from "@/lib/supabaseBrowser";
+import { AuthButtons } from "./auth-buttons-client";
+import { supabaseClient } from "@/lib/supabaseClient";
+
+export async function AuthButtonServer() {
+  const supabase = await supabaseClient();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+  return <AuthButtons session={session} />;
+}

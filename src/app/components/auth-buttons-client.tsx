@@ -1,5 +1,6 @@
 "use client";
 import { supabaseBrowser } from "@/lib/supabaseBrowser";
+import { Button } from "@heroui/react";
 import { Session } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 
@@ -23,13 +24,9 @@ export function AuthButtons({ session }: { session: Session | null }) {
   return (
     <>
       {session !== null ? (
-        <button
-          onClick={handleSingOut}
-          type="button"
-          className="text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-        >
+        <Button onClick={handleSingOut} color="default">
           Cerrar sesion
-        </button>
+        </Button>
       ) : (
         <button
           onClick={handleSingIn}

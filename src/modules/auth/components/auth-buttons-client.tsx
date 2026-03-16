@@ -1,5 +1,5 @@
 "use client";
-import { supabaseBrowser } from "@/lib/supabaseBrowser";
+import { supabaseBrowser } from "@/modules/core/lib/supabaseBrowser";
 import { Button } from "@heroui/react";
 import { Session } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";

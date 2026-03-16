@@ -1,10 +1,10 @@
-import { supabaseClient } from "@/lib/supabaseClient";
-import { AuthButtonServer } from "./components/auth-button-server";
+import { supabaseClient } from "@/modules/core/lib/supabaseClient";
+import { AuthButtonServer } from "@/modules/auth/components/auth-button-server";
 import { redirect } from "next/navigation";
-import { PostList } from "./components/post-list";
+import { PostList } from "@/modules/posts/components/post-list";
 
-import { type Database } from "./types/database";
-import { ComposePost } from "./components/compose-post";
+import { type Database } from "@/modules/core/types/database";
+import { ComposePost } from "@/modules/posts/components/compose-post";
 type Posts = Database["public"]["Tables"]["posts"]["Row"];
 export default async function Home() {
   const supabase = await supabaseClient();

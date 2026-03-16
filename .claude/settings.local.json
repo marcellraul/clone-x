@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:www.heroui.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(mkdir -p c:/Users/marce/workspace/react/clone-x/src/modules/core/lib)",
+      "Bash(mkdir -p c:/Users/marce/workspace/react/clone-x/src/modules/core/components)",
+      "Bash(mkdir -p c:/Users/marce/workspace/react/clone-x/src/modules/core/types)",
+      "Bash(mkdir -p c:/Users/marce/workspace/react/clone-x/src/modules/auth/components)",
+      "Bash(mkdir -p c:/Users/marce/workspace/react/clone-x/src/modules/posts/components)",
+      "Bash(mkdir -p c:/Users/marce/workspace/react/clone-x/src/modules/posts/types)",
+      "Bash(mkdir -p c:/Users/marce/workspace/react/clone-x/src/modules/posts/views)"
     ]
   }
 }

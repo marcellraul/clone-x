@@ -1,6 +1,6 @@
-import { supabaseBrowser } from "@/lib/supabaseBrowser";
+import { supabaseBrowser } from "@/modules/core/lib/supabaseBrowser";
 import { AuthButtons } from "./auth-buttons-client";
-import { supabaseClient } from "@/lib/supabaseClient";
+import { supabaseClient } from "@/modules/core/lib/supabaseClient";
 
 export async function AuthButtonServer() {
   const supabase = await supabaseClient();

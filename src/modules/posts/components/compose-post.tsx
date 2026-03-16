@@ -1,4 +1,4 @@
-import { supabaseClient } from "@/lib/supabaseClient";
+import { supabaseClient } from "@/modules/core/lib/supabaseClient";
 import { revalidatePath } from "next/cache";
 import { ComposePostButton } from "./compose-post-button";
 //import { Button } from "@heroui/react";

@@ -1,83 +1,43 @@
 "use client";
-import React, { useState } from "react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Avatar,
-  Button,
-  Link,
-} from "@heroui/react";
-import {
-  IconChartBar,
-  IconHeartCode,
-  IconMessageCircle,
-  IconRepeat,
-  IconRepeatOnce,
-} from "@tabler/icons-react";
-export default function PostCard({
-  userName,
-  userFullName,
-  avatarUrl,
-  content,
-}: {
-  userName: string;
-  userFullName: string;
-  avatarUrl: string;
-  content: string;
-}) {
-  const [isFollowed, setIsFollowed] = useState(false);
 
+import { Card, Avatar } from "@heroui/react";
+import { IconChartBar, IconHeartCode, IconMessageCircle, IconRepeat, IconShare2 } from "@tabler/icons-react";
+import Link from "next/link";
+import moment from "moment";
+
+export default function PostCard({ userName, userFullName, avatarUrl, content, createdAt }: { userName: string; userFullName: string; avatarUrl: string; content: string; createdAt: string }) {
   return (
-    <Card className="shadow-none bg-transparent min-w-[440px] hover:bg-slate-800 transition-colors duration-200 border-b rounded-none border-white/20 cursor-pointer">
-      <CardHeader className="justify-between">
-        <div className="flex gap-3">
-          <Link href={`/${userFullName}`} className="flex items-center gap-3">
-            <Avatar isBordered radius="full" size="md" src={avatarUrl} />
+    <Card className="shadow-none bg-transparent min-w-[440px] transition-colors duration-200 border-b rounded-none border-white/20 cursor-pointer">
+      <div className="flex flex-row gap-3 p-3">
+        <Link href={`/${userName}`} className="shrink-0">
+          <Avatar isBordered radius="full" size="md" src={avatarUrl} />
+        </Link>
+        <div className="flex flex-col flex-1 ">
+          <Link href={`/${userName}`} className="flex items-center gap-2">
+            <h4 className="text-lg font-semibold  text-default-600">{userFullName}</h4>
+            <h5 className="text-lg text-default-400">@{userName}</h5>
+            <span className="text-xs text-default-400">· {moment(createdAt).fromNow()}</span>
           </Link>
-          <div className="flex flex-col gap-1 items-start justify-center">
-            <h4 className="text-small font-semibold leading-none text-default-600">
-              {userName}
-            </h4>
-            <h5 className="text tracking-tight text-default-400">
-              @{userFullName}
-            </h5>
+          <p className="text-default-500 ">{content}</p>
+          <div className="flex justify-between mt-2">
+            <span className="text-[#2b2e31] hover:text-[#1D9BF0] transition-colors duration-200 cursor-pointer">
+              <IconMessageCircle />
+            </span>
+            <span className="text-[#2b2e31] hover:text-[rgb(0,186,124)] transition-colors duration-200 cursor-pointer">
+              <IconRepeat />
+            </span>
+            <span className="text-[#2b2e31] hover:text-[rgb(249,24,128)] transition-colors duration-200 cursor-pointer">
+              <IconHeartCode />
+            </span>
+            <span className="text-[#2b2e31] hover:text-[rgb(154,119,233)] transition-colors duration-200 cursor-pointer">
+              <IconChartBar />
+            </span>
+            <span className="text-[#2b2e31] hover:text-[rgb(241,213,127)] transition-colors duration-200 cursor-pointer">
+              <IconShare2 />
+            </span>
           </div>
         </div>
-        {/* <Button
-          className={
-            isFollowed
-              ? "bg-transparent text-foreground border-default-200"
-              : ""
-          }
-          color="primary"
-          radius="full"
-          size="sm"
-          variant={isFollowed ? "bordered" : "solid"}
-          onPress={() => setIsFollowed(!isFollowed)}
-        >
-          {isFollowed ? "Unfollow" : "Follow"}
-        </Button> */}
-      </CardHeader>
-      <CardBody className="px-3 py-0 text text-white-400">
-        <p>{content}</p>
-      </CardBody>
-      <CardFooter className="gap-3">
-        <IconMessageCircle />
-        <IconRepeat></IconRepeat>
-        <IconHeartCode></IconHeartCode>
-        <IconChartBar></IconChartBar>
-
-        <div className="flex gap-1">
-          <p className="font-semibold text-default-400 text-small">4</p>
-          <p className=" text-default-400 text-small">Following</p>
-        </div>
-        <div className="flex gap-1">
-          <p className="font-semibold text-default-400 text-small">97.1K</p>
-          <p className="text-default-400 text-small">Followers</p>
-        </div>
-      </CardFooter>
+      </div>
     </Card>
   );
 }

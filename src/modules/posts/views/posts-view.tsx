@@ -1,4 +1,4 @@
-import PostCard from "./post-card";
+import PostCard from "../components/post-card";
 import { type Post } from "../types/posts";
 
 export function PostList({ posts }: { posts: Post[] | null }) {

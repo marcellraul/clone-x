@@ -21,7 +21,7 @@ export async function supabaseClient() {
                             cookieStore.set(name, value, options);
                         });
                     } catch {
-                        // Next.js no permite set() en algunos contextos
+                        // Cookie writes are only allowed in Server Actions or Route Handlers
                     }
                 },
             },

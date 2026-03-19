@@ -4,7 +4,6 @@ import { supabaseClient } from "@/modules/core/lib/supabaseClient";
 import { revalidatePath } from "next/cache";
 
 export const addPost = async (formData: FormData) => {
-
     let image_url: string | null = null;
     const content = formData.get("content");
     const image = formData.get("image") as File | null;

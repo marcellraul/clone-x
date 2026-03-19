@@ -5,7 +5,7 @@ import { IconChartBar, IconHeartCode, IconMessageCircle, IconRepeat, IconShare2 
 import Link from "next/link";
 import moment from "moment";
 
-export default function PostCard({ userName, userFullName, avatarUrl, content, createdAt }: { userName: string; userFullName: string; avatarUrl: string; content: string; createdAt: string }) {
+export default function PostCard({ userName, userFullName, avatarUrl, content, createdAt, imageUrl }: { userName: string; userFullName: string; avatarUrl: string; content: string; createdAt: string; imageUrl?: string | null }) {
   return (
     <Card className="shadow-none bg-transparent min-w-[440px] transition-colors duration-200 border-b rounded-none border-white/20 cursor-pointer">
       <div className="flex flex-row gap-3 p-3">
@@ -19,6 +19,7 @@ export default function PostCard({ userName, userFullName, avatarUrl, content, c
             <span className="text-xs text-default-400">· {moment(createdAt).fromNow()}</span>
           </Link>
           <p className="text-default-500 ">{content}</p>
+          {imageUrl && <img src={imageUrl} alt="post image" className="mt-2 rounded-xl max-h-96 object-cover w-full" />}
           <div className="flex justify-between mt-2">
             <span className="text-[#2b2e31] hover:text-[#1D9BF0] transition-colors duration-200 cursor-pointer">
               <IconMessageCircle />

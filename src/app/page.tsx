@@ -23,7 +23,7 @@ export default async function Home() {
           <PostList posts={posts} />
         </section>
         <AuthButtonServer />
-        {/* <pre>{JSON.stringify(posts, null, 2)}</pre> */}
+        <pre>{JSON.stringify(posts, null, 2)}</pre>
       </main>
     </div>
   );
